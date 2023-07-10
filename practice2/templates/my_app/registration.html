@@ -1,0 +1,17 @@
+{% extends "my_app/base.html" %}
+{% load static %}
+{% block my_block %}
+<h1>This is Registration Page</h1>
+{% if registered %}
+<h1>Thanks For Registering!</h1>
+{% else %}
+<h1>Register Here!</h1>
+<h2>Fill-out this form:</h2>
+<form enctype="multipart/form-data" method = "post">
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="" value="Submit">
+</form>
+{% endif %}
+{% endblock %}
